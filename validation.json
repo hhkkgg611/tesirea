@@ -1,0 +1,19 @@
+{
+  "original_xapk_sha256": "6c54ff51d74724d411f4cb6d245d06f7fa38902f70bce68560dedb9f7e01d365",
+  "test_package": "com.vibecast.vistata.recoverytest",
+  "apk_sha256": "2b181dc528ebcbf27277c288c64714106c8fb8f7e57c345cfc49f651aa874bdd",
+  "apk_bytes": 55952012,
+  "search_behavior_checks_passed": 14,
+  "ad_methods_patched": 24,
+  "online_search": "not_implemented_api_hosts_blocked",
+  "android_device_tests": "not_run_no_device_or_emulator",
+  "signature_schemes_verified": [
+    "v2",
+    "v3"
+  ],
+  "rea_packaged_method_checks": [
+    "MainActivity.onCreate",
+    "FlutterInterstitialAd.load"
+  ],
+  "patch_repeatability": "manifest_unchanged"
+}
