@@ -1,0 +1,92 @@
+HYPIT STUDIO - RUNWARE + WAVESPEED
+Windows 10 / 11, x64 (Intel or AMD)
+
+GET STARTED
+-----------
+1. Install Python 3.13 (64-bit) from:
+   https://www.python.org/downloads/windows/
+   Choose a Python 3.13 release and its Windows installer (64-bit).
+   Enable "Add python.exe to PATH" and the Python launcher when offered.
+   You only need to do this if Python 3.13 x64 is not already installed.
+
+2. Right-click the downloaded ZIP and select "Extract All".
+   Open the extracted Hypit-Studio-Windows folder.
+   Do not run the batch files from inside the ZIP preview.
+
+3. Double-click Setup.bat once.
+   It creates .venv, installs bundled Python 3.13 Windows dependencies,
+   and downloads FFmpeg/ffprobe from the GyanD GitHub release if needed.
+   The FFmpeg archive's published SHA-256 is verified before extraction.
+   First setup needs Internet access for that download (about 110 MB).
+   No administrator access or permanent system PATH change is required.
+
+4. Double-click Start.bat.
+   Your browser opens when the server is ready:
+   http://127.0.0.1:8081
+   Keep the console window open while using the app.
+   Press Ctrl+C in that window to stop it.
+
+5. In the app, open Connections and enter your Runware and/or WaveSpeed keys.
+   Verify access, create a project, and upload your reference ad/product photo.
+   Keys entered in Connections stay in memory for that server session only.
+   Add them again after restarting the server. Paid generation is billed by
+   the provider; nothing is generated automatically during installation.
+   Cloud environment settings and publishing are NOT needed on your PC.
+
+USING YOUR AD WORKSPACE
+----------------------
+Reference -> Recast -> Shot studio -> Export.
+Plan the replacements, approve the frame, generate motion and speech,
+lip-sync any visible speaker, then review and approve every shot.
+Upload corrected takes where needed. The app assembles a final MP4 locally.
+AI edits can drift; identical footage with only selected details changed
+is not guaranteed. See README.md for the workflow and model limitations.
+
+YOUR FILES
+----------
+.data       Projects, uploads, rendered takes and exports. Back up this folder.
+.venv       Installed Python environment. Recreated by Setup.bat if removed.
+.tools      FFmpeg and ffprobe downloaded by Setup.bat.
+vendor      Bundled Windows x64 / Python 3.13 wheels and checksum manifest.
+
+This ZIP does not contain cloud projects, credentials, a Linux virtual
+ environment, or sample videos represented as AI-generated results.
+
+TROUBLESHOOTING
+---------------
+"Python not found" / wrong Python:
+  Install the standard 64-bit Python 3.13 distribution. Microsoft Store
+  aliases, Python 32-bit, ARM-native Python, and a different minor version
+  do not match the bundled wheels. Setup.bat tries "py -3.13", then "python".
+  Close the setup window and open Setup.bat again after installing Python.
+
+Setup fails / download blocked:
+  Keep the whole extracted folder together. Allow Python to use HTTPS.
+  The initial media-tool download uses github.com and its release asset hosts.
+  No certificate or checksum verification is disabled by this installer.
+  If FFmpeg is already installed, ffmpeg.exe AND ffprobe.exe must be on PATH.
+  For a partial .tools/ffmpeg installation, rename that folder and rerun setup.
+
+Browser does not open:
+  Open http://127.0.0.1:8081 manually after the console says the server started.
+  Do not open index.html directly for the ad-remake app.
+
+Port 8081 already used:
+  A compatible running studio is reused. If another app uses that port,
+  open Command Prompt in this folder and run:
+      set HYPIT_PORT=8082
+      Start.bat
+  The browser will use the selected port.
+
+Provider operation fails:
+  Check the key, account credits, model access and the console/app message.
+  Runware uses api.runware.ai and schemas.runware.ai, with output media on
+  im.runware.ai, vm.runware.ai and am.runware.ai. WaveSpeed uses
+  api.wavespeed.ai, llm.wavespeed.ai and its signed media storage hosts.
+  Resume an existing task after a connection interruption; do not pay for
+  another render until the original request's outcome is known.
+
+The Windows wheel set, download checksum, installer extraction and local
+media pipeline were validated in a Linux build environment. A native
+Windows machine was not available to execute the batch launchers here.
+Live paid provider generation still requires your own keys/account access.

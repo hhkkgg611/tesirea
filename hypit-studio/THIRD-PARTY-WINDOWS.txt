@@ -1,0 +1,22 @@
+This package contains the Hypit Studio application source and unmodified
+Python wheels downloaded from PyPI. Each wheel retains its original
+METADATA, license and copyright files in its .dist-info directory.
+Exact package versions are recorded in requirements-windows.lock;
+file SHA-256 values are in vendor/wheels-sha256.json.
+
+FFmpeg is NOT redistributed in this ZIP. Setup downloads the Windows
+FFmpeg build directly from GyanD/codexffmpeg on GitHub and verifies its
+published release-asset SHA-256. The installer retains the build's license
+and README files next to the downloaded binaries when present.
+
+Build release and checksum: windows-ffmpeg.json
+FFmpeg project and licensing: https://ffmpeg.org/legal.html
+Windows build information: https://www.gyan.dev/ffmpeg/builds/
+Windows build source/release: https://github.com/GyanD/codexffmpeg
+
+Python itself is not included. Download it from python.org and retain
+its supplied license notices.
+
+Runware and WaveSpeed are external services. Their API keys and service
+charges are not included. This app is an independent workspace, not an
+endorsed or official Hypit/Higgsfield/Runware/WaveSpeed product.

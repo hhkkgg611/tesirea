@@ -1,0 +1,6 @@
+fastapi==0.121.3
+uvicorn==0.38.0
+httpx==0.28.1
+python-multipart==0.0.20
+Pillow==12.0.0
+jsonschema==4.25.1
