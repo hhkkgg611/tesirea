@@ -483,6 +483,9 @@ def job_update(pid,jid,**values):
     mutate(pid,update)
 
 def frame_prompt(p,s):
+    if p.get('simple'):
+        from .simple import frame_prompt as simple_frame_prompt
+        return simple_frame_prompt(p,s)
     b=p['brief']
     return (f'Remake @composition with the same framing, pose, hand placement, shot scale, and perspective. '
         f'Source: {s["description"]}. Replace the showcased item with {b["product_name"]} from @product. '
@@ -492,6 +495,12 @@ def frame_prompt(p,s):
         'Photorealistic UGC still. No new captions, lettering, or extra products.')
 
 def video_prompt(p,s):
+    if p.get('simple'):
+        from .simple import shot_notes
+        return (f'Edit the supplied source video using the approved opening frame. {s["description"]}. '
+            f'Apply only these changes: {p["simple"]["prompt"]}. {s["changes"]}. {shot_notes(p,s)} '
+            'Keep all other people, objects, camera movement, gestures, shot timing and composition from the source. '
+            'Maintain the edited appearance consistently throughout the clip. Do not add cuts, captions or new objects.')
     b=p['brief']
     return (f'Preserve the input video camera path, action beats, timing and hand-object interactions. '
         f'{s["description"]}. Use the approved replacement frame for the cast, room, lighting and {b["product_name"]}. '
@@ -501,6 +510,9 @@ def video_prompt(p,s):
 def prepare_request(p,s,stage,job):
     pid=p['id'];b=p['brief'];folder=file_path(pid,s['folder']) if s else None
     if stage=='frame':
+        if p.get('simple'):
+            from .simple import prepare_shot_frame
+            return prepare_shot_frame(p,s)
         provider=b['frame_provider'];prompt=frame_prompt(p,s)
         if provider=='runware':PROVIDERS.runware_schema('google:4@3')
         composition=PROVIDERS.upload(provider,folder/'first.jpg')
@@ -604,7 +616,7 @@ def assembly(p,job):
     if abs(info['duration']-reference['duration'])>.15:
         raise media.MediaError('Final duration differs from the reference. Adjust cut boundaries to 30fps frame times and assemble again.')
     report={'reference_duration':reference['duration'],'output_duration':info['duration'],'shot_count':len(p['shots']),
-        'timing_tolerance_seconds':.15,'quality_review':'Manual approval recorded for every shot. Not an automated fidelity guarantee.',
+        'timing_tolerance_seconds':.15,'quality_review':'AI draft. Review the complete video before use.' if p.get('simple') else 'Manual approval recorded for every shot. Not an automated fidelity guarantee.',
         'shots':[{'id':s['id'],'start':s['start'],'end':s['end'],'checks':s['checks'],'audio_mode':s['audio_mode']} for s in p['shots']]}
     (out/'review.json').write_text(json.dumps(report,indent=2))
     mutate(pid,lambda p:p.update(export={'file':str(final.relative_to(directory(pid))),'report':str((out/'review.json').relative_to(directory(pid))),**info}))
@@ -703,5 +715,9 @@ def index():return FileResponse(ROOT/'index.html')
 
 @app.get('/{filename}')
 def static_file(filename:str):
-    if filename not in {'index.html','app.js','style.css','remix.js','remix.css'}:raise HTTPException(404,'Not found.')
+    if filename not in {'index.html','app.js','style.css','remix.js','remix.css','simple.js','simple.css'}:raise HTTPException(404,'Not found.')
     return FileResponse(ROOT/filename)
+
+from .simple import register as register_simple
+import sys
+register_simple(app,sys.modules[__name__])

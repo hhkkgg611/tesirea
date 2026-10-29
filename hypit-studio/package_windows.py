@@ -7,7 +7,7 @@ import zipfile
 
 ROOT=Path(__file__).resolve().parent
 TOP='Hypit-Studio-Windows'
-FILES=['index.html','style.css','app.js','remix.css','remix.js','README.md',
+FILES=['index.html','simple.css','simple.js','style.css','app.js','remix.css','remix.js','README.md',
        'START-HERE-WINDOWS.txt','THIRD-PARTY-WINDOWS.txt','Setup.bat','Start.bat',
        'windows.py','windows-ffmpeg.json','requirements.txt','requirements.lock',
        'requirements-windows.lock','setup.sh','start.sh','.gitignore','package_windows.py']

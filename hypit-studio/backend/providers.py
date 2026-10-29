@@ -270,6 +270,8 @@ class Providers:
                 raise ProviderError('Runware task '+status+': '+self.safe_error(str(data.get('error') or data.get('message') or status)))
             outputs=[data[k] for k in ('imageURL','videoURL','audioURL','mediaURL') if data.get(k)]
             if outputs:return {'done':True,'outputs':outputs,'cost':data.get('cost')}
+            if isinstance(data.get('text'),str):
+                return {'done':True,'text':data['text'],'cost':data.get('cost')}
             if status in {'success','succeeded','completed'}:raise ProviderError('Runware task completed without an output asset.')
             return {'done':False,'status':status or 'processing','cost':data.get('cost')}
         if provider!='wavespeed':raise ProviderError('Legacy provider task cannot be resumed through Runware or WaveSpeed.')

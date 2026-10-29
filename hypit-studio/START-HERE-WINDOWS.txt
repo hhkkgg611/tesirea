@@ -1,4 +1,4 @@
-HYPIT STUDIO - RUNWARE + WAVESPEED
+HYPIT STUDIO - SIMPLE RUNWARE EDITOR
 Windows 10 / 11, x64 (Intel or AMD)
 
 GET STARTED
@@ -26,21 +26,27 @@ GET STARTED
    Keep the console window open while using the app.
    Press Ctrl+C in that window to stop it.
 
-5. In the app, open Connections and enter your Runware and/or WaveSpeed keys.
-   Verify access, create a project, and upload your reference ad/product photo.
-   Keys entered in Connections stay in memory for that server session only.
-   Add them again after restarting the server. Paid generation is billed by
-   the provider; nothing is generated automatically during installation.
-   Cloud environment settings and publishing are NOT needed on your PC.
+5. In the app, click Connect Runware and enter your Runware API key.
+   Your key handles every AI step. It stays in server memory for this session;
+   enter it again after restarting. AI generations use your Runware credits.
+   Cloud environment settings and publishing are not needed on your PC.
 
-USING YOUR AD WORKSPACE
-----------------------
-Reference -> Recast -> Shot studio -> Export.
-Plan the replacements, approve the frame, generate motion and speech,
-lip-sync any visible speaker, then review and approve every shot.
-Upload corrected takes where needed. The app assembles a final MP4 locally.
-AI edits can drift; identical footage with only selected details changed
-is not guaranteed. See README.md for the workflow and model limitations.
+THE SIMPLE WORKFLOW
+-------------------
+Upload reference -> 5 keyframes -> describe changes -> recreate frames
+-> create video -> review and download MP4.
+
+Try: "Make the table blue. Keep everything else the same."
+Optionally add a photo for your character, product or room.
+Click a frame to add a change for just that moment.
+Open Script & voice only if you want different words, a new voice, or no audio.
+The app handles clip generation, speech, lip sync and assembly automatically.
+
+Uploading with a connected Runware key starts AI analysis. Recreate 5 frames
+and Create video start their respective paid generations. Longer references
+need multiple internal clips and additional opening frames.
+AI edits can drift; review the final video. Pixel-identical edits are not
+guaranteed. The app saves your work under .data; back up that folder.
 
 YOUR FILES
 ----------
@@ -81,8 +87,7 @@ Port 8081 already used:
 Provider operation fails:
   Check the key, account credits, model access and the console/app message.
   Runware uses api.runware.ai and schemas.runware.ai, with output media on
-  im.runware.ai, vm.runware.ai and am.runware.ai. WaveSpeed uses
-  api.wavespeed.ai, llm.wavespeed.ai and its signed media storage hosts.
+  im.runware.ai, vm.runware.ai and am.runware.ai. All AI steps in the simple app use Runware.
   Resume an existing task after a connection interruption; do not pay for
   another render until the original request's outcome is known.
 

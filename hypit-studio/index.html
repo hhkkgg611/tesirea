@@ -1,12 +1,23 @@
 <!doctype html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hypit Studio — Make your next big thing</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="remix.css"></head>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101210">
+  <title>Hypit Studio · Make it yours</title>
+  <link rel="stylesheet" href="simple.css">
+  <script src="simple.js" defer></script>
+</head>
 <body>
-<header><a class="brand" href="index.html"><span class="brand-mark">h.</span> hypit<span class="studio">STUDIO</span></a><nav aria-label="Main"><button class="nav active" data-page="remix">Ad remixer <span class="new">PRO</span></button><button class="nav" data-page="explore">Explore</button><button class="nav" data-page="create">Motion lab</button><button class="nav" data-page="projects">My projects</button></nav><div class="account"><button id="open-connections" class="local">◉ Connections</button><button class="avatar" title="Local workspace">Y</button></div></header>
-<main>
-<section id="remix"></section><section id="explore" hidden><div class="eyebrow">YOUR IDEAS. MAIN CHARACTER ENERGY.</div><div class="title-row"><h1>Make your next<br><span>big thing.</span></h1><p>One idea. Endless possibilities.<br>Turn a spark into a video worth watching.</p></div>
-<div class="hero"><div class="hero-art"><div class="orbit o1"></div><div class="orbit o2"></div><div class="planet"></div><div class="grain"></div></div><div class="hero-content"><span class="pill">THE CREATOR WORKSPACE</span><h2>From “what if”<br>to watch this.</h2><p>Your footage. Your words. A whole new story.<br>Build, remix, and export right in your browser.</p><button class="white" id="hero-create">Start creating <span>↗</span></button></div><span class="hero-caption">IMAGINATION, IN MOTION. / 001</span></div>
-<div class="section-title"><h2>Find your starting point</h2><span>A little inspiration goes a long way ↘</span></div><div class="filters" aria-label="Template categories"><button class="selected" data-filter="All">All inspiration</button><button data-filter="Cinematic">Cinematic</button><button data-filter="Product">Product ads</button><button data-filter="Social">Social & UGC</button><button data-filter="Motion">Motion graphics</button></div><div id="templates" class="cards"></div>
-<div class="bottom-note"><span>✳ Built for the way you create.</span><p>Start with a template, bring your own footage, make it yours.</p></div></section>
-<section id="create" hidden><div class="section-title"><div><div class="eyebrow">LET’S MAKE SOMETHING</div><h1 class="small-title">Your next creation.</h1></div><button id="reset" class="outline">New project ＋</button></div><div class="editor"><form id="creation-form"><label>01 / THE IDEA<input id="project-name" maxlength="80" placeholder="Give your project a name" required></label><label>Your story<textarea id="prompt" rows="5" maxlength="2000" placeholder="A midnight drive through the city. Neon lights, slow cuts, and a story about chasing something bigger…" required></textarea></label><label class="upload" for="footage"><span>↥</span><strong id="upload-label">Bring your own footage</strong><small>Optional · video or image · stays on your device</small><input id="footage" type="file" accept="video/*,image/*"></label><div class="settings"><label>Format<select id="ratio"><option value="9:16">9:16 · Portrait</option><option value="16:9">16:9 · Landscape</option><option value="1:1">1:1 · Square</option></select></label><label>Length<select id="duration"><option value="6">6 seconds</option><option value="10">10 seconds</option><option value="15">15 seconds</option></select></label></div><label>Visual treatment<select id="treatment"><option value="cinema">Midnight cinema</option><option value="solar">Solar flare</option><option value="mint">Electric mint</option><option value="rose">Velvet rose</option></select></label><label class="check"><input id="captions" type="checkbox" checked> Show story captions</label><button class="lime" type="submit" id="generate">Build preview <span>↗</span></button><p class="hint">Browser-based motion editor. Creates animated compositions from your text and media. No AI service connected.</p></form><div class="preview-panel"><div class="preview-heading"><span>LIVE CANVAS</span><span id="preview-format">9:16 / 6 SEC</span></div><div class="canvas-wrap"><canvas id="canvas" width="540" height="960" aria-label="Video composition preview"></canvas><div id="empty-preview"><span>✳</span><h3>A great story starts here.</h3><p>Add your idea and build a preview.</p></div></div><div class="transport"><button id="play" class="outline" disabled>▶ Play</button><span id="play-time">00:00 / 00:06</span><button id="export" class="white" disabled>Export video ↓</button></div><div id="storyboard" class="storyboard"></div></div></div></section>
-<section id="projects" hidden><div class="eyebrow">YOUR LOCAL WORKSPACE</div><h1 class="small-title">Made by you.</h1><p class="muted">Saved ideas live in this browser. Uploaded media is never stored.</p><div id="project-list" class="project-list"></div></section>
-</main><footer><a class="brand" href="index.html">h. <span>hypit</span></a><span>A little idea can go a long way.</span><span>Independent creative workspace © 2026</span></footer><div id="toast" role="status"></div><script src="app.js"></script><script src="remix.js"></script></body></html>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Hypit Studio home"><span class="brand-icon">h.</span> hypit <span>STUDIO</span></a>
+    <div class="header-actions"><button class="quiet" id="projects-button">My videos</button><button class="connection" id="connection-button"><i></i><span>Connect Runware</span></button></div>
+  </header>
+  <main id="app"><div class="loading">Opening your studio…</div></main>
+  <footer><span>Reference in. Your version out.</span><span>Made with Runware <span class="footer-dot">·</span> Saved on this computer</span></footer>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <dialog id="modal" aria-labelledby="modal-title"></dialog>
+  <input type="file" id="video-input" accept="video/*,.mp4,.mov,.webm" hidden>
+  <input type="file" id="image-input" accept="image/*" hidden>
+</body>
+</html>
