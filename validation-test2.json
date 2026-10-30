@@ -1,0 +1,19 @@
+{
+  "version_name": "1.9.6-recovery-test2",
+  "version_code": 203,
+  "test_package": "com.vibecast.vistata.recoverytest",
+  "apk_sha256": "5d9729fef4040e29b9218f1021623276284b694a8ecc9b6c47f8ea1f1ea8f127",
+  "apk_bytes": 55960204,
+  "search_behavior_checks_passed": 14,
+  "date_filter_sorting_checks_passed": 34,
+  "signature_schemes_verified": [
+    "v2",
+    "v3"
+  ],
+  "zip_crc": "passed",
+  "packaged_dex_matches_compiled_output": true,
+  "android_device_tests": "not_run_no_device_or_emulator",
+  "online_search": "not_implemented",
+  "original_app_channel_suggestions_added": 0,
+  "channel_request_status": "pending_catalog_access_and_contract_verification"
+}
