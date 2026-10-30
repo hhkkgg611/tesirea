@@ -4,7 +4,7 @@ A simple HTML app with a local Python backend. **Upload a video → review five 
 
 ## Run on Windows
 
-Download [Hypit-Studio-Windows.zip](https://github.com/hhkkgg611/tesirea/raw/refs/heads/hypit-studio-windows/hypit-studio/downloads/Hypit-Studio-Windows.zip). Install **Python 3.13 x64**, extract the whole ZIP, run **Setup.bat** once, then **Start.bat**. Open `http://127.0.0.1:8081`. See `START-HERE-WINDOWS.txt` for troubleshooting.
+Download [Hypit-Studio-Windows-v2.zip](https://github.com/hhkkgg611/tesirea/raw/refs/heads/hypit-studio-windows/hypit-studio/downloads/Hypit-Studio-Windows-v2.zip). Install **Python 3.13 x64**, extract the whole ZIP, run **Setup.bat** once, then **Start.bat**. Open `http://127.0.0.1:8081`. See `START-HERE-WINDOWS.txt` for troubleshooting.
 
 The ZIP includes Windows Python dependencies. First setup downloads and checksum-verifies FFmpeg. Keep the Start.bat console open while using the app. Cloud publishing is not needed on your PC.
 
